@@ -52,7 +52,7 @@ At startup, Lemonade-Flow queries active local model configuration endpoints. It
 
 ### Setup Instructions
 ```bash
-git clone https://github.com/your-username/lemonade-flow.git
+git clone https://github.com/djdistraction/lemonade-flow.git
 cd lemonade-flow
 pip install -r requirements.txt
 ```
