@@ -1,27 +1,10 @@
 # Latency results
 
-Status: **to be recorded on AMD hardware**
+No results have been submitted yet.
 
-Nothing below has been measured. Do not paste the mock harness output here. `benchmarks/results/mock-run.json`, when present, is a fake server on loopback and is not a hardware result.
+Add one row per machine and run in a pull request. Use a live run of `benchmarks/bench_latency.py` against Lemonade Server, plus the recipe and loaded device from `GET /v1/models` and `GET /v1/health`. The method is [METHOD.md](METHOD.md).
 
-| Field | Value |
-| --- | --- |
-| Date | |
-| Machine (CPU) | |
-| GPU | |
-| NPU | |
-| Lemonade version (`lemonade status` or `/v1/health`) | |
-| Model id | |
-| Recipe | |
-| Loaded device from `/v1/health` (`device`) | |
-| Warm or cold (did this call load the model?) | |
-| Prompt | Reply with one short sentence about a local model on a PC. |
-| Client TTFT (s) | |
-| Client total time (s) | |
-| Completion tokens | |
-| Client tokens/s | |
-| Server-reported TTFT from `/v1/stats` (s) | |
-| Server-reported tokens/s | |
-| Command | `python benchmarks/bench_latency.py --endpoint http://localhost:13305 --model Qwen2.5-0.5B-Instruct-Hybrid` |
+Mock harness output is not a result. Do not paste `python benchmarks/bench_latency.py --mock` or `benchmarks/results/mock-run.json` into this table.
 
-Method: [METHOD.md](METHOD.md).
+| Date | CPU | GPU | NPU | Lemonade version | Model id | Recipe | Loaded device | Warm/cold | Prompt | Client TTFT (s) | Total time (s) | Completion tokens | Tokens/s | Server TTFT (s) | Server tokens/s | Command |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

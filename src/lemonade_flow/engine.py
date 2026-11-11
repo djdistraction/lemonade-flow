@@ -7,9 +7,9 @@ Model ids default to entries in lemonade-sdk/lemonade ``src/cpp/resources/server
   ``amd/Qwen2.5-0.5B-Instruct-onnx-ryzenai-1.7-hybrid``, suggested chat model,
   about 0.83 GB. Hybrid Ryzen AI 1.7 checkpoints use the XDNA NPU for prefill
   and the Radeon GPU for decode. It is the smallest suggested instruct hybrid
-  above the 135M SmolLM toys, so a demo can pull it on a Ryzen AI PC. Machines
-  without a Ryzen AI NPU should set ``LEMONADE_TEXT_MODEL=Qwen3-0.6B-GGUF``
-  (recipe ``llamacpp``). ``Llama-3.2-1B-Instruct-NPU`` is the NPU-only alternative.
+  above the 135M SmolLM entries. Machines without a Ryzen AI NPU can set
+  ``LEMONADE_TEXT_MODEL=Qwen3-0.6B-GGUF`` (recipe ``llamacpp``).
+  ``Llama-3.2-1B-Instruct-NPU`` is the NPU-only registry id.
 * ``SD-Turbo`` — recipe ``sd-cpp``, the image id used in the Lemonade
   ``POST /v1/images/generations`` example.
 * ``Whisper-Tiny`` — recipe ``whispercpp``, the id used in the

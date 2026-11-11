@@ -30,14 +30,17 @@ def test_mock_benchmark_is_labeled(tmp_path: Path):
     payload = json.loads(output.read_text(encoding="utf-8"))
     assert payload["label"] == "mock"
     assert payload["hardware_status"] == "mock"
-    assert "to be recorded on AMD hardware" in payload["note"]
+    assert "Not a benchmark result" in payload["note"]
+    assert "to be recorded on AMD hardware" not in payload["note"]
     assert payload["ttft_seconds"] is not None
     assert payload["total_seconds"] >= payload["ttft_seconds"]
     assert payload["completion_tokens"] == 2
     assert payload["output_text"] == "Hello"
     assert payload["tokens_per_second"] is not None
     template = (ROOT / "benchmarks" / "RESULTS.md").read_text(encoding="utf-8")
-    assert "to be recorded on AMD hardware" in template
+    assert "No results have been submitted yet" in template
+    assert "to be recorded on AMD hardware" not in template
+    assert "not a result" in template.lower()
     assert "Hello" not in template
     assert str(payload["ttft_seconds"]) not in template
 

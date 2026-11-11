@@ -13,8 +13,8 @@ Client metrics
 into the client fields.
 
 ``--mock`` talks to ``lemonade_flow.mock_server`` on 127.0.0.1. That output is
-a harness check, not an AMD measurement. Live numbers are to be recorded on
-AMD hardware; this script does not write ``benchmarks/RESULTS.md``.
+a harness check, not a benchmark result. This script does not write
+``benchmarks/RESULTS.md``.
 """
 
 from __future__ import annotations
@@ -184,14 +184,14 @@ async def run_measurement(endpoint: str, model: str, prompt: str, max_tokens: in
     if mock:
         measured["hardware_status"] = "mock"
         measured["note"] = (
-            "MOCK RUN against lemonade_flow.mock_server. Not an AMD measurement. "
-            "Live results are to be recorded on AMD hardware."
+            "MOCK RUN against lemonade_flow.mock_server. Harness check only. "
+            "Not a benchmark result."
         )
     else:
-        measured["hardware_status"] = "to be recorded on AMD hardware"
+        measured["hardware_status"] = "local"
         measured["note"] = (
-            "Client timings from this process. Confirm the CPU, GPU, and NPU on the machine "
-            "and copy the fields into benchmarks/RESULTS.md. to be recorded on AMD hardware."
+            "Client timings from this process. They are not in benchmarks/RESULTS.md "
+            "until a pull request adds a row. Mock output is not a result."
         )
     return measured
 
@@ -200,7 +200,10 @@ def main(argv: list[str] | None = None) -> int:
     args = parse_args(argv)
     output = args.output
     if output is not None and output.name == "RESULTS.md":
-        print("Refusing to write RESULTS.md. Record live numbers there by hand.", file=sys.stderr)
+        print(
+            "Refusing to write RESULTS.md. Add a measured row in a pull request.",
+            file=sys.stderr,
+        )
         return 2
     server: Optional[MockLemonadeServer] = None
     endpoint = args.endpoint

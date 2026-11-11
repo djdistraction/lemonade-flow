@@ -1,5 +1,5 @@
 JSON files in this directory are local runs and are gitignored.
 
-`python benchmarks/bench_latency.py --mock` writes `mock-run.json`. That file is a loopback harness check. It is not an AMD result.
+`python benchmarks/bench_latency.py --mock` writes `mock-run.json`. That file is a loopback harness check. It is not a result and does not belong in `../RESULTS.md`.
 
-Live output belongs in a file you choose with `--output`. Copy the fields you measured into `../RESULTS.md`. Until you do that, the table stays **to be recorded on AMD hardware**.
+A live `--output` file is also local. Publish the measured fields by adding one row to `../RESULTS.md` in a pull request. No results have been submitted yet.
