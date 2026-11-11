@@ -9,3 +9,10 @@ ENV/
 .vscode/
 .DS_Store
 *.b64
+.pytest_cache/
+.mypy_cache/
+*.egg-info/
+dist/
+build/
+.streamlit/
+benchmarks/results/*.json

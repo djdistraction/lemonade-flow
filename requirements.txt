@@ -2,4 +2,7 @@ aiohttp>=3.9.0
 streamlit>=1.30.0
 tiktoken>=0.5.0
 pillow>=10.0.0
-pyaudio>=0.2.14
+
+# Microphone capture is optional and is not installed by this file.
+# PortAudio wheels are unreliable across Linux and Windows, so pyaudio is not
+# a dependency. For the microphone path: pip install -e ".[audio]"

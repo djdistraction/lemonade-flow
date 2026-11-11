@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lemonade-flow"
+version = "1.0.0"
+description = "Orchestrate text, speech, and image calls against a local Lemonade Server."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Randall Gene" }]
+keywords = ["lemonade", "amd", "ryzen-ai"]
+dependencies = [
+    "aiohttp>=3.9.0",
+    "streamlit>=1.30.0",
+    "tiktoken>=0.5.0",
+    "pillow>=10.0.0",
+]
+
+[project.optional-dependencies]
+audio = ["sounddevice>=0.4.6"]
+dev = ["pytest>=8.0"]
+
+[project.urls]
+Homepage = "https://github.com/djdistraction/lemonade-flow"
+Lemonade = "https://lemonade-server.ai/"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
